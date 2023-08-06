@@ -1,0 +1,13 @@
+version: "3"
+services:
+  backend:
+    image: ./back-end/planium-test-nest/Dockerfile
+    ports:
+      - "3000:3000"
+    restart: always
+
+  frontend:
+    image: ./front-end/planium-test-angular/Dockerfile
+    ports:
+      - "4200:4200"
+    restart: always

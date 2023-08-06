@@ -1,0 +1,56 @@
+@import '../app.component';
+
+.choose-button-cell {
+  padding: 8px;
+  text-align: center;
+}
+
+/* Styling for the button inside the cell */
+.choose-button-cell button {
+  background-color: #4caf50; /* Green background color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Add some padding */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  transition: box-shadow 0.2s, background-color 0.2s; /* Smooth transitions */
+}
+
+/* Hover effect */
+.choose-button-cell button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+}
+
+.addButtom {
+  padding: 8px;
+  text-align: center;
+}
+
+/* Styling for the button inside the cell */
+.addButtom {
+  background-color: #d0d04f; /* Green background color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Add some padding */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  transition: box-shadow 0.2s, background-color 0.2s; /* Smooth transitions */
+}
+
+/* Hover effect */
+.addButtom:hover {
+  background-color: #d0d04f; /* Darker green on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+  margin: 20px;
+}

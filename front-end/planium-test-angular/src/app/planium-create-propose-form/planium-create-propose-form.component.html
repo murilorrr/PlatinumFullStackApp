@@ -1,0 +1,75 @@
+<mat-card class="container-main">
+
+  <mat-card-header class="mat-card-header">
+    <mat-card-title class="mat-card-title">Escolha seu plano</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="planos" class="mat-elevation-z8">
+        <ng-container matColumnDef="minimoVidas">
+          <th mat-header-cell *matHeaderCellDef> Mínimo Beneficiários </th>
+          <td mat-cell *matCellDef="let element"> {{element.minimoVidas}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="faixa1">
+          <th mat-header-cell *matHeaderCellDef> 0 - 18 anos </th>
+          <td mat-cell *matCellDef="let element"> {{element.faixa1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="faixa2">
+          <th mat-header-cell *matHeaderCellDef> 18 - 40 anos </th>
+          <td mat-cell *matCellDef="let element"> {{element.faixa2}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="faixa3">
+          <th mat-header-cell *matHeaderCellDef> acima de 40 anos </th>
+          <td mat-cell *matCellDef="let element"> {{element.faixa3}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="preco">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.preco}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="choose">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element" class="choose-button-cell">
+            <button mat-button color="primary" (click)="escolherPlano(element)">Comprar</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+    <form *ngIf="planoEscolhido">
+      <div *ngFor="let beneficiario of informacaoDosBeneficiarios; let i = index" style="display: flex; gap: 20px; margin-top: 5%; flex-wrap: wrap;" >
+        <mat-form-field class="full-width">
+          <mat-label>Nome</mat-label>
+          <input [(ngModel)]="beneficiario.nome" matInput placeholder="Nome" type="text" [name]="'nome-' + i" />
+        </mat-form-field>
+
+        <mat-form-field class="age">
+          <mat-label>idade</mat-label>
+          <mat-select [(ngModel)]="beneficiario.idade" required [name]="'nome-' + i">
+            <mat-option value="18">18 anos ou menos</mat-option>
+            <mat-option value="40">19 até 40 anos</mat-option>
+            <mat-option value="99">Acima dos 40 anos</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="planoEscolhido">
+    <button id="add" class="addButtom" mat-button color="primary" (click)="adicionarNovoBeneficiario()">Adicionar novo Beneficiário</button>
+    <button [disabled]="isNotValid()" type="button" mat-button style="background-color: #7b1fa2;" (click)="onSubmit()">Finalizar</button>
+  </mat-card-actions>
+</mat-card>

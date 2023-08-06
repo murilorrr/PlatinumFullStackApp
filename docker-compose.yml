@@ -1,0 +1,13 @@
+version: "3"
+services:
+  backend:
+    build: ./back-end/planium-test-nest/
+    ports:
+      - "3000:3000"
+    restart: always
+
+  frontend:
+    build: ./front-end/planium-test-angular/
+    ports:
+      - "4200:4200"
+    restart: always
